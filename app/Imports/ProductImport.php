@@ -5,8 +5,8 @@ namespace App\Imports;
 use App\Models\product;
 
 use Maatwebsite\Excel\Concerns\ToModel;
-
-class ProductImport implements ToModel
+use Maatwebsite\Excel\Concerns\WithStartRow;
+class ProductImport implements ToModel , WithStartRow
 {
     /**
      * @param array $row
@@ -16,12 +16,18 @@ class ProductImport implements ToModel
     public function model(array $row)
     {
 
-        //Handling mapping 
+       
 
         return new product([
            'name'    => $row[0],
-           'qty'     =>  (int)$row[1], 
+           'qty'     =>  $row[1], 
            'type'    =>  ($row[2]),
         ]);
+    }
+
+
+    public function startRow(): int
+    {
+        return 2;
     }
 }

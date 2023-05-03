@@ -29,6 +29,8 @@ Auth::routes();
 Route::middleware(['HasAccessToImportProducts'])->group(function () {
     Route::get('ProductImport' , [ProductController::class, 'ImportView'])->name('ProductImportView');
     Route::post('ProductImport' , [ProductController::class, 'Import'])->name('ProductImport');
+    Route::get('ConfirmImport' , [ProductController::class, 'ConfirmImportView'])->name('ConfirmInport');
 
+    Route::post('ConfirmImport' , [ProductController::class, 'ConfirmImport'])->name('ConfirmInport');
 });
 
