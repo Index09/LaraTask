@@ -19,9 +19,9 @@ class ProductImport implements ToModel
         //Handling mapping 
 
         return new product([
-           'name'     => $row[0],
-           'type'    => $row[1], 
-           'qty' =>  (int)($row[2]),
+           'name'    => $row[0],
+           'qty'     =>  (int)$row[1], 
+           'type'    =>  ($row[2]),
         ]);
     }
 }
